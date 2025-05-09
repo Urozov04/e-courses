@@ -11,10 +11,10 @@ router
   .post("/signin", controller.singinAdmin)
   .post("/confirmsignin", controller.confirmsignIn)
   .post("/signout", controller.signoutAdmin)
+  .post("/accesstoken", controller.accessToken)
   .get("/all", controller.getAllUsers)
   .get("/:id",JwtAuthGuard, UserGuard, controller.getById)
-  .get("/accesstoken", controller.accessToken)
-  .patch("/:id", controller.updateById)
-  .delete("/:id", controller.deleteById);
+  .patch("/:id", JwtAuthGuard, UserGuard, controller.updateById)
+  .delete("/:id",JwtAuthGuard, UserGuard, controller.deleteById);
 
 export { router as userRouter };

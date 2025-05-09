@@ -1,6 +1,7 @@
 import Course from "../model/course.model.js";
 import { catchError } from "../utils/error-response.js";
 import { CourseValidator } from "../validations/course.validation.js";
+import Category  from "../model/category.model.js"
 
 export class CourseController {
   async create(req, res) {
